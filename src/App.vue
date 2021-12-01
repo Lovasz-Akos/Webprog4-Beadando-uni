@@ -23,4 +23,4 @@
       this.$store.dispatch('authenticate');
     }
   }
-</style>
+</script>
