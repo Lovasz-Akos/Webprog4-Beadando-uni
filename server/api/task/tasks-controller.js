@@ -42,3 +42,26 @@ export function show(req, res) {
         return res.status(200).json({ task: task });
     });
 }
+
+export function update(req, res) {
+    const id = auth.getUserId(req);
+
+    User.findOne({ _id: id }, (error, user) => {
+        if (error) {
+            return res.status(500).json();
+        }
+        if (!user) {
+            return res.status(404).json();
+        }
+
+        const task = new Task(req.body.task);
+        task.author = user._id;
+        task.dueDate = moment(task.dueDate);
+        Task.findByIdAndUpdate({ _id: task._id }, task, (error) => {
+            if (error) {
+                return res.status(500).json();
+            }
+            return res.status(204).json();
+        });
+    });
+}
