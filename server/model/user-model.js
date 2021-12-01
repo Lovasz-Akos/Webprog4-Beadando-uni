@@ -11,7 +11,15 @@ const userSchema = new mongoose.Schema({
 
 userSchema.set("timestamps", true);
 
+userSchema.virtual("fullName").get(function() {
+    const first = StringUtil.capitalize(this.first.toLowerCase());
+    const last = StringUtil.capitalize(this.last.toLowerCase());
+    return `${first} ${last}`;
+});
 
+userSchema.statics.passwordMatches = function(password, hash) {
+    return bcrypt.compareSync(password, hash);
+};
 
 userSchema.pre("save", function(next) {
     this.username = this.username.toLowerCase();
