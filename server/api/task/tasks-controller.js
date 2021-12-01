@@ -30,3 +30,15 @@ export function create(req, res) {
         });
     });
 }
+
+export function show(req, res) {
+    Task.findOne({ _id: req.params.id }, (error, task) => {
+        if (error) {
+            return res.status(500).json();
+        }
+        if (!task) {
+            return res.status(404).json();
+        }
+        return res.status(200).json({ task: task });
+    });
+}
