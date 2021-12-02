@@ -11,7 +11,18 @@ export default new Vuex.Store({
         username: null,
         userId: null
     },
-
+    mutations: {
+        authenticate(state) {
+            state.isLoggedIn = auth.isLoggedIn();
+            if (state.isLoggedIn) {
+                state.username = auth.getUsername();
+                state.userId = auth.getUserId();
+            } else {
+                state.userId = null;
+                state.username = null;
+            }
+        }
+    },
     actions: {
         authenticate(context) {
             context.commit('authenticate');
