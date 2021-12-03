@@ -41,6 +41,18 @@ export default new Router({
             }
         },
         {
+            path: '/tasks/:id',
+            name: 'tasks-edit',
+            component: TasksEdit,
+            beforeEnter: (to, from, next) => {
+                if (auth.isLoggedIn()) {
+                    next();
+                } else {
+                    next('/login');
+                }
+            }
+        },
+        {
             path: '/register',
             name: 'register',
             component: Register,
