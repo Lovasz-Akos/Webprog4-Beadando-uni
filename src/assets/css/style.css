@@ -51,3 +51,24 @@ div#custom-home {
 .btn-success:hover {
     background-color: #3da978;
 }
+
+form.custom-form {
+    max-width: 40rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-title {
+    text-align: center;
+}
+
+.modal-title,
+.modal-body p {
+    color: #000 !important;
+}
+
+.late {
+    color: #dc3545;
+}
