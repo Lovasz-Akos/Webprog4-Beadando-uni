@@ -72,3 +72,18 @@ form.custom-form {
 .late {
     color: #dc3545;
 }
+
+#app,
+#app-container {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.jumbotron {
+    text-align: center;
+}
+
+.tasks {
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}
