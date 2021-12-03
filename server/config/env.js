@@ -36,6 +36,7 @@ function setDevEnv(app) {
  */
 function setProdEnv(app) {
     process.env.NODE_ENV = "production";
+    app.use(cors()); //nemtudok micsinálni, kibaszik velem akkor én is vele
     process.env.DB_URL =
         "mongodb://localhost:27017/mevnTSK";
     process.env.TOKEN_SECRET = "27946982a9a4408996607fe95a6299f9";
