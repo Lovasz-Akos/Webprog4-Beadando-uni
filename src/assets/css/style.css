@@ -18,3 +18,14 @@ a.navbar-brand {
 li.nav-item a {
     text-transform: uppercase;
 }
+.btn-primary {
+    background-color: #32aced !important;
+}
+
+.btn-success {
+    background-color: #4fc08d !important;
+}
+
+.btn-success:hover {
+    background-color: #3da978;
+}
