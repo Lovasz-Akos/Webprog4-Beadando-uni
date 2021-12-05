@@ -18,7 +18,14 @@ export function create(req, res) {
         if (error && !user) {
             return res.status(500).json();
         }
-        const task = new Task(req.body.task);
+
+        const task = new Task({
+            title: req.body.title,
+            body: req.body.body,
+            dueDate: req.body.dueDate
+        });
+
+        //const task = new Task(req.body.task);
         task.author = user._id;
         task.dueDate = moment(task.dueDate);
 
