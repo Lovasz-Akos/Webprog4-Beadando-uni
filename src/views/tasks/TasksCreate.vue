@@ -60,7 +60,9 @@ export default {
   methods: {
     onSubmit: async function () {
       const request = {
-        task: this.task,
+        title: this.task.title,
+        body: this.task.body,
+        dueDate: this.task.dueDate
       }
       await taskService.createTask(request)
       this.$router.push({ name: "tasks-all" })
